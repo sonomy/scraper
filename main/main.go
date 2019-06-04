@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-    http.HandleFunc("/scrape", scraper.Handle)
+    http.HandleFunc("/scraper", scraper.Handle)
     http.ListenAndServe(":8082", nil)
 }

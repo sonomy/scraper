@@ -1,1 +1,1 @@
-gcloud functions deploy scrape --runtime go111 --trigger-http --entry-point=Handle
+gcloud functions deploy scraper --runtime go111 --trigger-http --entry-point=Handle
