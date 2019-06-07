@@ -1,0 +1,3 @@
+#!/bin/bash
+gcloud beta emulators datastore start --data-dir=./data
+$(gcloud beta emulators datastore env-init --data-dir=./data)
