@@ -1,0 +1,19 @@
+version: '3'
+
+# @see https://code.visualstudio.com/docs/remote/containers#_quick-start-try-a-dev-container
+
+services:
+  go:
+    volumes:
+      - ..:/app
+      # This lets you avoid setting up Git again in the container
+      - ~/.gitconfig:/root/.gitconfig
+
+    # Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+    - SYS_PTRACE
+    security_opt:
+    - seccomp:unconfined
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
