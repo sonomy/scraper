@@ -5,7 +5,7 @@ version: '3'
 services:
   go:
     volumes:
-      - ..:/app
+      - .:/app
       # This lets you avoid setting up Git again in the container
       - ~/.gitconfig:/root/.gitconfig
 
