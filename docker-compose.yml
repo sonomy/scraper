@@ -9,9 +9,6 @@ services:
     environment:
       - "SHELL=/bin/bash"
       - "GO11MODULE=on"
-      - DATASTORE_PROJECT_ID
-      - CLOUDSDK_CORE_PROJECT
-      - GOOGLE_APPLICATION_CREDENTIALS
     volumes:
       - .:/app
       - /go
