@@ -11,7 +11,7 @@ import (
 
 func main() {
     httpPort := 8082
-    fmt.Printf("listening on %v\n", httpPort)
+    fmt.Printf("> listening on %v\n", httpPort)
     http.HandleFunc("/scraper", scraper.Handle)
     http.ListenAndServe(fmt.Sprintf(":%d", httpPort), logRequest(http.DefaultServeMux))
 }

@@ -2,9 +2,19 @@ version: '3'
 
 services:
   go:
-    image: mercari/appengine-go:1.11-stretch
+    build:
+      context: .
+      args:
+       GOLANG_VERSION: 1.11.10
+    environment:
+      - "SHELL=/bin/bash"
+      - "GO11MODULE=on"
+      - DATASTORE_PROJECT_ID
+      - CLOUDSDK_CORE_PROJECT
+      - GOOGLE_APPLICATION_CREDENTIALS
     volumes:
       - .:/app
+      - /go
     ports:
       - 8082:8082
       - 8000:8000

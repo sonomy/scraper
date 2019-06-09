@@ -15,3 +15,10 @@
 
 node_modules
 #!include:.gitignore
+
+docker-compose.yml
+data
+credentials
+.devcontainer
+.vscode
+main

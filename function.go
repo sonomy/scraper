@@ -3,31 +3,30 @@ package scraper
 import (
     "log"
     "net/http"
-    // "context"
-    // "os"
-    // "google.golang.org/appengine/datastore"
+    "context"
+    "os"
+    "cloud.google.com/go/datastore"
 )
 
 // Handle is public
 func Handle(w http.ResponseWriter, r *http.Request) {
 
-    // projID := os.Getenv("DATASTORE_PROJECT_ID")
-	// if projID == "" {
-	// 	log.Fatal(`You need to set the environment variable "DATASTORE_PROJECT_ID"`)
-	// }
-	// // [START datastore_build_service]
-	// ctx := context.Background()
-	// client, err := datastore.NewClient(ctx, projID)
-	// // [END datastore_build_service]
-	// if err != nil {
-	// 	log.Fatalf("Could not create datastore client: %v", err)
-	// }
-
+    projID := os.Getenv("DATASTORE_PROJECT_ID")
+	if projID == "" {
+		log.Fatal(`You need to set the environment variable "DATASTORE_PROJECT_ID"`)
+	}
+	// [START datastore_build_service]
+	ctx := context.Background()
+	client, err := datastore.NewClient(ctx, projID)
+	// [END datastore_build_service]
+	if err != nil {
+		log.Fatalf("Could not create datastore client: %v, %v", err, client)
+	}
 
     urls, ok := r.URL.Query()["url"]
 
     if !ok || len(urls[0]) < 1 {
-        log.Println("Url Param 'url' is missing")
+        log.Println("Url Param 'url' is missing!!")
         return
     }
 

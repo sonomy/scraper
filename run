@@ -1,2 +1,7 @@
 #!/bin/bash
+echo '> datastore env-init'
+$(gcloud beta emulators datastore env-init --data-dir=./data)
+echo '> datastore start'
+gcloud beta emulators datastore start --data-dir=./data &
+echo '> main start'
 go run main/main.go
