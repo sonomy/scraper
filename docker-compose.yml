@@ -1,6 +1,15 @@
 version: '3'
 
 services:
+  datastore:
+    image: google/cloud-sdk:latest
+    hostname: datastore
+    expose:
+      - 8081
+    command: gcloud beta emulators datastore start --project=sonomy --host-port datastore:8081
+    volumes:
+      - .:/app
+
   go:
     build:
       context: docker/.
@@ -16,3 +25,5 @@ services:
     working_dir: /app
     #command: ./run
     command: sleep infinity
+    depends_on:
+      - datastore
