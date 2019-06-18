@@ -1,8 +1,10 @@
 #!/bin/bash
 echo '> datastore env-init'
 $(gcloud beta emulators datastore env-init --data-dir=./data)
-echo `env`
+
 echo '> datastore start'
 gcloud beta emulators datastore start --project ${DATASTORE_PROJECT_ID} --data-dir=./data &
+
 echo '> main start'
-go run main/main.go
+#go run main/main.go
+dev_appserver.py main/app.yaml --host=0.0.0.0 --admin_host=0.0.0.0

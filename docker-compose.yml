@@ -3,9 +3,7 @@ version: '3'
 services:
   go:
     build:
-      context: .
-      args:
-       GOLANG_VERSION: 1.11.10
+      context: docker/.
     environment:
       - "SHELL=/bin/bash"
       - "GO11MODULE=on"
@@ -13,7 +11,8 @@ services:
       - .:/app
       - /go
     ports:
-      - 8082:8082
+      - 8080:8080
       - 8000:8000
     working_dir: /app
-    command: ./run
+    #command: ./run
+    command: sleep infinity
