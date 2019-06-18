@@ -37,7 +37,7 @@ func Handle(w http.ResponseWriter, r *http.Request) {
         log.Fatalf("Could not create datastore client: %v, %v", err, client)
     }
 
-    k := datastore.NameKey("Entity", "stringID2", nil)
+    k := datastore.NameKey("Entity", "stringID", nil)
     e := MyEntity{A: 12}
     if _, err := client.Put(ctx, k, &e); err != nil {
         log.Fatalf("Could not create entity: %v, %v", err, e)

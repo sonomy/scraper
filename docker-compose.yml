@@ -6,9 +6,9 @@ services:
     hostname: datastore
     expose:
       - 8081
-    command: gcloud beta emulators datastore start --project=sonomy --host-port datastore:8081
+    command: gcloud beta emulators datastore start --project=sonomy --host-port datastore:8081 --data-dir=/app/docker/data/datastore
     volumes:
-      - .:/app
+      - .:/app:cached
 
   go:
     build:
@@ -17,13 +17,12 @@ services:
       - "SHELL=/bin/bash"
       - "GO11MODULE=on"
     volumes:
-      - .:/app
-      - /go
+      - .:/app:cached
+      - ./docker/data/go:/go:cached
     ports:
       - 8080:8080
       - 8000:8000
     working_dir: /app
-    #command: ./run
     command: sleep infinity
     depends_on:
       - datastore

@@ -17,8 +17,15 @@ node_modules
 #!include:.gitignore
 
 docker-compose.yml
-data
+docker
 credentials
 .devcontainer
 .vscode
+.env*
+deploy
+README.md
+
+# for local debug
 main
+app.yaml
+run

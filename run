@@ -9,4 +9,4 @@ export DATASTORE_HOST=http://datastore:8081
 # export DATASTORE_PROJECT_ID=
 
 echo '> main start'
-dev_appserver.py main/app.yaml --host=0.0.0.0 --admin_host=0.0.0.0
+dev_appserver.py app.yaml --host=0.0.0.0 --admin_host=0.0.0.0

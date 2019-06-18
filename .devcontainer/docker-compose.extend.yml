@@ -5,7 +5,8 @@ version: '3'
 services:
   go:
     volumes:
-      - .:/app
+      - .:/app:cached
+      - ./docker/data/go:/go:cached
       # This lets you avoid setting up Git again in the container
       - ~/.gitconfig:/root/.gitconfig
 

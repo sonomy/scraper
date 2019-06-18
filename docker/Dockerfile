@@ -35,7 +35,7 @@ RUN set -eux && \
 	\
 	curl -sSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-"$CLOUD_SDK_VERSION"-"$(uname | tr '[:upper:]' '[:lower:]')"-"$(uname -m)".tar.gz | tar -C /usr/lib -xzf - && \
 	/usr/lib/google-cloud-sdk/install.sh --usage-reporting=false --command-completion=false --path-update=false --quiet --additional-components \
-		# app-engine-go \
+		app-engine-go \
 		# bq \
 		# cbt \
 		# bigtable \
